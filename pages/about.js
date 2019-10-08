@@ -2,13 +2,16 @@ import Layout from "../components/Layout";
 import Link from "next/link";
 import React, { Component } from 'react';
 import fetch from 'isomorphic-unfetch'
+import Error from "./_error";
+
 
 export default class About extends Component {
 
     static async getInitialProps() {
-        const res = await fetch('https://api.github.com/users/khchoi0301')
+        const res = await fetch('https://api.github.com/users/khchoi030111')
+        const statusCode = res.status > 200 ? res.status : false
         const data = await res.json();
-        return { user: data }
+        return { user: data, statusCode }
     }
 
     // state = {
@@ -26,8 +29,12 @@ export default class About extends Component {
     // }
 
     render() {
+        const { user, statusCode } = this.props
 
-        const { user } = this.props
+        if (statusCode) {
+            return <Error statusCode={statusCode} />
+        }
+
         return (
             <Layout title="About">
                 <p>{user.name}</p>
