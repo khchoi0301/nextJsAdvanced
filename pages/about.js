@@ -14,20 +14,6 @@ export default class About extends Component {
         return { user: data, statusCode }
     }
 
-    // state = {
-    //     user: null
-    // }
-
-    // componentDidMount() {
-    //     fetch('https://api.github.com/users/khchoi0301')
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             this.setState({
-    //                 user: data
-    //             })
-    //         })
-    // }
-
     render() {
         const { user, statusCode } = this.props
 
@@ -37,20 +23,42 @@ export default class About extends Component {
 
         return (
             <Layout title="About">
-                <p>{user.name}</p>
-                <Link href="/">
+                {/* <p>{user.name}</p> */}
+                {/* <Link href="/">
                     <a>Go to home</a>
-                </Link>
-                <p>Javasciprt programmer</p>
-                <img src={user.avatar_url} height="200px"></img>
+                </Link> */}
+
+                <div className="upper">
+                    <div className="aboutme">
+                        <h1>about me</h1>
+                        <p>몰입과 태도가 중요하다고 믿는 개발자 입니다.</p>
+                        <p>세부 내용</p>
+                        {/* <p>Javasciprt programmer</p> */}
+                    </div>
+                    <img src="../static/aboutme.jpg"></img>
+                </div>
+                <style jsx>{`
+                    .upper {
+                        /* display: inline; */
+                        width:70vw;
+                        margin-left:auto;
+                        margin-right:auto;
+                    }
+                    .aboutme {
+                        float:left;
+                        display: inline;
+                        width:40%;
+                    }
+                    .aboutme > p {
+                        /* display: inline */
+                    }
+                    img {
+                        float: right;
+                        width:50%;
+                    }
+                `}</style>
+                {/* <img src={user.avatar_url} height="200px"></img> */}
             </Layout>
         );
     }
 }
-
-// export default () => (
-//     <Layout title="About">
-//         <p>Javasciprt programmer</p>
-//         <img src="../static/jslogo.png" height="200px"></img>
-//     </Layout>
-// );
