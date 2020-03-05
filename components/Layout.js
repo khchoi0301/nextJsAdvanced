@@ -17,15 +17,21 @@ export default ({ children, title }) => (
             <title>Next Portfolio</title>
         </Head>
         <header>
-            <Link href="/"><a>Home</a></Link>
-            <Link href="/about"><a>about</a></Link>
-            <Link href="/hireme"><a>hire me</a></Link>
+            <Link href="/"><a className='homeButton'>KIHONG CHOI</a></Link>
+            <Link href="/about"><a>about me</a></Link>
+            <Link href="/hireme"><a>contact</a></Link>
             <Link href="/blog"><a>Blog</a></Link>
         </header>
-        <h1>{title}</h1>
-        {children}
+        <main>{children}</main>
         <footer>&copy;{new Date().getFullYear()}</footer>
         <style jsx>{`
+            main {
+                margin : 2rem;
+                display: inline;
+            }
+            .homeButton {
+                letter-spacing: 4px;
+            }
             .root {
                 display:flex;
                 justify-content:center;
@@ -39,7 +45,7 @@ export default ({ children, title }) => (
                 justify-content: space-around;
                 padding: 1em;
                 font-size: 1.2rem;
-                background: indigo;
+                background: black;
             }
 
             header a {
