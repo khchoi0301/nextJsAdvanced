@@ -12,4 +12,4 @@ npm run dev
 ```
 
 ## Deploy
-https://next-portfolio-j8lf5e74k.now.sh/blog
+https://next-portfolio-j8lf5e74k.now.sh
