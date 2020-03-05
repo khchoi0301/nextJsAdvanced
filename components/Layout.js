@@ -65,9 +65,8 @@ export default ({ children, title }) => (
         <style global jsx>{`
             body {
                 margin : 0;
-                font-size: 110%;
-                background: #f0f0f0;
-                
+                font-size: 100%;
+                /* background: #f0f0f0;                 */
             }
         `}</style>
     </div>

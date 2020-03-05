@@ -1,63 +1,84 @@
 import Layout from "../components/Layout";
-import Link from "next/link";
 import React, { Component } from 'react';
-import fetch from 'isomorphic-unfetch'
-import Error from "./_error";
-
+import matter from 'gray-matter'
+import ReactMarkdown from 'react-markdown'
 
 export default class About extends Component {
 
-    static async getInitialProps() {
-        const res = await fetch('https://api.github.com/users/khchoi0301')
-        const statusCode = res.status > 200 ? res.status : false
-        const data = await res.json();
-        return { user: data, statusCode }
+    static async getInitialProps(context) {
+        const content = await import(`../md/resume/README.md`)
+        const data = matter(content.default)
+        return {
+            ...data,
+        }
     }
 
     render() {
-        const { user, statusCode } = this.props
-
-        if (statusCode) {
-            return <Error statusCode={statusCode} />
-        }
+        const { content } = this.props
 
         return (
             <Layout title="About">
-                {/* <p>{user.name}</p> */}
-                {/* <Link href="/">
-                    <a>Go to home</a>
-                </Link> */}
-
-                <div className="upper">
-                    <div className="aboutme">
-                        <h1>about me</h1>
-                        <p>몰입과 태도가 중요하다고 믿는 개발자 입니다.</p>
-                        <p>세부 내용</p>
-                        {/* <p>Javasciprt programmer</p> */}
+                <div className="about-upper">
+                    <span className="about-upper-text">
+                        <h1>About me</h1>
+                        <p>
+                            몰입과 태도가 중요하다고 믿는 개발자 입니다.<br />
+                            Javascript를 좋아하고, Javascript로 무언가를 만들는 것도 좋아합니다.<br />
+                            프로그래밍으로 새로운 미래를 만듭니다.
+                        </p>
+                    </span>
+                    <img src="/static/aboutme.png"></img>
+                </div>
+                <hr />
+                <div className='about-resume'>
+                    <div>
+                        <ReactMarkdown source={content} />
                     </div>
-                    <img src="../static/aboutme.jpg"></img>
                 </div>
                 <style jsx>{`
-                    .upper {
-                        /* display: inline; */
+                    .about-upper, hr, .about-resume{
                         width:70vw;
+                        max-width:1000px;
                         margin-left:auto;
                         margin-right:auto;
                     }
-                    .aboutme {
-                        float:left;
-                        display: inline;
-                        width:40%;
+                    .about-upper {
+                        display: flex;
+                        justify-content: space-between;
+                        align-content: space-between;
+                        height:100%;
+                        margin-bottom:2.5rem;
+                        flex-wrap: wrap;
                     }
-                    .aboutme > p {
-                        /* display: inline */
+                    h1 {
+                        margin-top:3rem;
+                        margin-bottom:2rem;
+                    }
+                    .about-upper p {
+                        line-height:1.6rem;
+                        margin-bottom:2rem;
+                    }
+                    hr {
+                        margin-bottom:3rem;
+                        height:1px; 
+                        background: black;
+                    }
+                    .about-resume {
+                        margin-top:20px;
+                    }
+                    .about-upper-text {
+                        /* float:left; */
+                        margin-right:2rem;
+                        width:30vw;
+                        min-width:300px;
+                        max-width:420px;
                     }
                     img {
-                        float: right;
-                        width:50%;
+                        width:37vw;
+                        min-width:300px;
+                        max-width:480px;
                     }
                 `}</style>
-                {/* <img src={user.avatar_url} height="200px"></img> */}
             </Layout>
         );
     }
