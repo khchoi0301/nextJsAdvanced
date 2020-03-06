@@ -6,7 +6,7 @@ export default class MyDocument extends Document {
             <html lang="en">
                 <Head>
                     <meta name="description" content="A site for my programming portfolio" />
-                    <meta charset="utf-8" />
+                    {/* <meta charset="utf-8" /> */}
                     <meta name="robot" content="noindex, nofollow" />
                     <meta name="viewport" content="width=device-width" />
                     <link

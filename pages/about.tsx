@@ -3,10 +3,14 @@ import React, { Component } from 'react';
 import matter from 'gray-matter'
 import ReactMarkdown from 'react-markdown'
 
-export default class About extends Component {
+interface Props {
+    content?: any;
+}
+
+export default class About extends Component<Props> {
 
     static async getInitialProps(context) {
-        const content = await import(`../md/resume/README.md`)
+        const content = await import("../md/resume/README.md")
         const data = matter(content.default)
         return {
             ...data,

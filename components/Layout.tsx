@@ -3,15 +3,14 @@ import Head from "next/head";
 import Router from "next/router"
 import Nprogress from "nprogress"
 
-Router.onRouteChangeStart = url => {
-    console.log(url)
-    Nprogress.start()
-}
-Router.onRouteChangeComplete = () => Nprogress.done()
-Router.onRouteChangeError = () => Nprogress.done()
+Router.events.on("routeChangeStart", () => { Nprogress.start(); });
+
+Router.events.on("routeChangeComplete", () => { Nprogress.done(); });
+
+Router.events.on("routeChangeError", () => { Nprogress.done(); });
 
 
-export default ({ children, title }) => (
+export default ({ children, title }: { children: any; title?: any }) => (
     <div className='root'>
         <Head>
             <title>Next Portfolio</title>
@@ -66,7 +65,6 @@ export default ({ children, title }) => (
             body {
                 margin : 0;
                 font-size: 100%;
-                /* background: #f0f0f0;                 */
             }
         `}</style>
     </div>
