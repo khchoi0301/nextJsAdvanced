@@ -27,7 +27,7 @@ export default class About extends Component<Props> {
                         <h1>About me</h1>
                         <p>
                             몰입과 태도가 중요하다고 믿는 개발자 입니다.<br />
-                            Javascript를 좋아하고, Javascript로 무언가를 만들는 것도 좋아합니다.<br />
+                            Javascript, 그리고 Javascript로 무언가를 만들는 것을 좋아합니다.<br />
                             프로그래밍으로 새로운 미래를 만듭니다.
                         </p>
                     </span>
