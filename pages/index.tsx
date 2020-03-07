@@ -90,6 +90,8 @@ export default class About extends Component<Props> {
                     }
                     img {
                         width:37vw;
+                        height:auto;
+                        max-height:320px;
                         min-width:300px;
                         max-width:480px;
                     }
