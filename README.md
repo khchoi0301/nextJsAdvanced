@@ -13,3 +13,4 @@ npm run dev
 
 ## Deploy
 https://next-portfolio-kappa.now.sh/
+https://khchoi.com
