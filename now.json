@@ -1,6 +1,7 @@
 {
     "version": 2,
     "name": "next-portfolio",
+    "alias": "khchoi.com",
     "builds": [
         {
             "src": "package.json",
