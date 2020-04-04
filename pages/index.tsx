@@ -29,7 +29,7 @@ export default class About extends Component<Props> {
 
     render() {
         const { content } = this.props
-
+        console.log('index page')
         return (
             <Layout title="About">
                 <div className="about-upper">

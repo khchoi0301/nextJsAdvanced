@@ -15,6 +15,7 @@ function trackPageView(url) {
 class MyApp extends App {
 
     componentDidMount() {
+        console.log("_app.js componentDidMount")
         Router.onRouteChangeComplete = url => {
             trackPageView(url);
         };
@@ -22,6 +23,7 @@ class MyApp extends App {
 
     render() {
         const { Component, pageProps } = this.props
+        console.log("_app.js render")
         return <Component {...pageProps} />
     }
 }

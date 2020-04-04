@@ -14,6 +14,8 @@ export default class MyDocument extends Document {
     }
 
     render() {
+        console.log("_document.js render")
+
         return (
             <html lang="en">
                 <Head>
