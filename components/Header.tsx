@@ -5,7 +5,7 @@ const navItems: { label: string; page?: string; style?: string; }[] = [
     { label: 'KIHONG CHOI', page: '/', style: "homeButton" },
     // { label: 'About', page: '/about', style: "button" },
     { label: 'Contact', page: '/contact', style: "button" },
-    { label: 'Blog', page: 'https://www.notion.so/kihongchoi/f5bc82cd572948dbaa283cf5b3aff74f', style: "button" },
+    { label: 'Blog', page: '/blog', style: "button" },
 ]
 
 export default () => (
@@ -16,10 +16,10 @@ export default () => (
         <header>
             {navItems.map(({ label, page, style }) => (
                 <li key={label}>
-                    {label === "Blog" ?
+                    {/* {label === "Blog" ?
                         <a href={page} target="_blank" className={style}>{label}</a>
-                        : <Link href={page}><a className={style}>{label}</a></Link>}
-
+                        : <Link href={page}><a className={style}>{label}</a></Link>} */}
+                    <Link href={page}><a className={style}>{label}</a></Link>
                 </li>
             ))}
         </header>

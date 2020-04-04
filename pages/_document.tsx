@@ -1,6 +1,18 @@
 import Document, { Head, Main, NextScript } from "next/document";
 
 export default class MyDocument extends Document {
+
+    setGoogleTags() {
+        return {
+            __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'UA-98794084-2');
+          `
+        };
+    }
+
     render() {
         return (
             <html lang="en">
@@ -36,6 +48,12 @@ export default class MyDocument extends Document {
                 <body>
                     <Main />
                     <NextScript />
+                    <script
+                        async
+                        src="https://www.googletagmanager.com/gtag/js?id=UA-98794084-2"
+                    />
+                    {/* We call the function above to inject the contents of the script tag */}
+                    <script dangerouslySetInnerHTML={this.setGoogleTags()} />
                 </body>
                 <style global jsx>{`
                     body {
